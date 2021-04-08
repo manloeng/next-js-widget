@@ -16,6 +16,9 @@ function PersonalFinance() {
 
   const handleUpdate = (e) => {};
 
+  if (!Object.keys(data).length) return <></>;
+
+  console.log(data, "data");
   return (
     <div className={styles.widget}>
       <h1>Your Income And Spend</h1>
@@ -28,11 +31,32 @@ function PersonalFinance() {
         </div>
         <div>
           <label>Annual Salary:</label>
-          <input type="text" id="salary" name="salary" placeholder="Enter your annual salary..." required />
+          <input
+            type="text"
+            id="salary"
+            name="salary"
+            value={data.incomes[0].amount ? data.incomes[0].amount : 0}
+            placeholder="Enter your annual salary..."
+            required
+          />
           <label>From Age:</label>
-          <input type="text" id="fromAge" name="fromAge" placeholder="Enter age..." required />
+          <input
+            type="text"
+            id="fromAge"
+            name="fromAge"
+            value={data.incomes[0].from_age ? data.incomes[0].from_age : 0}
+            placeholder="Enter age..."
+            required
+          />
           <label>To Age:</label>
-          <input type="text" id="toAge" name="toAge" placeholder="Enter age..." required />
+          <input
+            type="text"
+            id="toAge"
+            name="toAge"
+            value={data.incomes[0].to_age ? data.incomes[0].to_age : 0}
+            placeholder="Enter age..."
+            required
+          />
         </div>
 
         <div>
