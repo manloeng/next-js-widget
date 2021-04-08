@@ -16,3 +16,23 @@
   border: 1px solid black;
   box-shadow: 1px solid black;
 }
+
+.widget h1 {
+  color: white;
+  background-color: rgb(11, 11, 133);
+  margin: 0;
+  padding: 1rem;
+}
+
+.widget form {
+  margin: 1rem;
+}
+
+.widget form label {
+  display: block;
+  margin: 0.5rem;
+}
+.widget form input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
