@@ -1,7 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import example from "../../../../exmaple.json";
 import styles from "../../../../styles/FinancialPlanPage.module.css";
 
 function PersonalFinance() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const cache = localStorage.getItem("data");
+    if (!cache) {
+      setData(example);
+    } else {
+      setData(cache);
+    }
+  }, []);
+
+  const handleUpdate = (e) => {};
+
   return (
     <div className={styles.widget}>
       <h1>Your Income And Spend</h1>
