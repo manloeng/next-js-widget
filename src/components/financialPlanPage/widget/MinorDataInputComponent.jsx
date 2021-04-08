@@ -1,4 +1,4 @@
-function MinorDataInputComponent({ title, amount, toAge, fromAge }) {
+function MinorDataInputComponent({ title, amount, toAge, fromAge, handleUpdate }) {
   return (
     <div>
       <label>{title}:</label>

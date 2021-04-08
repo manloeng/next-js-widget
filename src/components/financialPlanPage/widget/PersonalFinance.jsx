@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
-import example from "../../../../exmaple.json";
+import MinorDataInputCompoent from "./MinorDataInputComponent";
+
 import styles from "../../../../styles/FinancialPlanPage.module.css";
 
-function PersonalFinance() {
-  const [data, setData] = useState({});
-
-  useEffect(() => {
-    const cache = localStorage.getItem("data");
-    if (!cache) {
-      setData(example);
-    } else {
-      setData(cache);
-    }
-  }, []);
-
-  const handleUpdate = (e) => {};
-
+function PersonalFinance({ data = {}, handleUpdate }) {
   if (!Object.keys(data).length) return <></>;
+  const { incomes, expenditures } = data;
 
-  console.log(data, "data");
   return (
     <div className={styles.widget}>
       <h1>Your Income And Spend</h1>
@@ -29,35 +17,18 @@ function PersonalFinance() {
             <b>Annual Income</b>
           </label>
         </div>
-        <div>
-          <label>Annual Salary:</label>
-          <input
-            type="text"
-            id="salary"
-            name="salary"
-            value={data.incomes[0].amount ? data.incomes[0].amount : 0}
-            placeholder="Enter your annual salary..."
-            required
-          />
-          <label>From Age:</label>
-          <input
-            type="text"
-            id="fromAge"
-            name="fromAge"
-            value={data.incomes[0].from_age ? data.incomes[0].from_age : 0}
-            placeholder="Enter age..."
-            required
-          />
-          <label>To Age:</label>
-          <input
-            type="text"
-            id="toAge"
-            name="toAge"
-            value={data.incomes[0].to_age ? data.incomes[0].to_age : 0}
-            placeholder="Enter age..."
-            required
-          />
-        </div>
+
+        {incomes.map((income) => {
+          return (
+            <MinorDataInputCompoent
+              title={income.name}
+              amount={income.amount ? income.amount : 0}
+              fromAge={income.from_age ? income.from_age : 0}
+              toAge={income.to_age ? income.to_age : 0}
+              handleUpdate={handleUpdate}
+            ></MinorDataInputCompoent>
+          );
+        })}
 
         <div>
           <label>
@@ -65,37 +36,17 @@ function PersonalFinance() {
           </label>
         </div>
 
-        <div>
-          {/* could seperate these into mini components */}
-          <label>Mortgage:</label>
-          <input
-            type="text"
-            id="mortgage"
-            name="mortgage"
-            placeholder="Enter your monthly mortgage payment..."
-            required
-          />
-          <label>From Age:</label>
-          <input type="text" id="mortgageFromAge" name="mortgageFromAge" placeholder="Enter age..." required />
-          <label>To Age:</label>
-          <input type="text" id="mortgageToAge" name="mortgageToAge" placeholder="Enter age..." required />
-
-          <br />
-          <label>Bills:</label>
-          <input type="text" id="bills" name="bills" placeholder="Enter your monthly bills..." required />
-          <label>From Age:</label>
-          <input type="text" id="billsFromAge" name="billsFromAge" placeholder="Enter age..." required />
-          <label>To Age:</label>
-          <input type="text" id="billsToAge" name="billsToAge" placeholder="Enter age..." required />
-
-          <br />
-          <label>General Spending:</label>
-          <input type="text" id="salary" name="salary" placeholder="Enter your annual salary..." required />
-          <label>From Age:</label>
-          <input type="text" id="fromAge" name="fromAge" placeholder="Enter age..." required />
-          <label>To Age:</label>
-          <input type="text" id="toAge" name="toAge" placeholder="Enter age..." required />
-        </div>
+        {expenditures.map((expense) => {
+          return (
+            <MinorDataInputCompoent
+              title={expense.name}
+              amount={expense.amount ? expense.amount : 0}
+              fromAge={expense.from_age ? expense.from_age : 0}
+              toAge={expense.to_age ? expense.to_age : 0}
+              handleUpdate={handleUpdate}
+            ></MinorDataInputCompoent>
+          );
+        })}
       </form>
     </div>
   );
