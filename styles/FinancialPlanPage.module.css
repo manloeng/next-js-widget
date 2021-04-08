@@ -17,6 +17,10 @@
   box-shadow: 1px solid black;
 }
 
+.widget form {
+  margin: 1rem;
+}
+
 .widget h1 {
   color: white;
   background-color: rgb(11, 11, 133);
@@ -24,15 +28,17 @@
   padding: 1rem;
 }
 
-.widget form {
-  margin: 1rem;
+.widget form div {
+  display: ƒlex;
 }
 
-.widget form label {
-  display: block;
-  margin: 0.5rem;
+.widgetHeader {
+  margin-bottom: 0.5rem;
 }
+
 .widget form input {
+  width: 100px;
+  margin: 0.5rem;
   padding: 1rem;
   border-radius: 0.5rem;
 }
