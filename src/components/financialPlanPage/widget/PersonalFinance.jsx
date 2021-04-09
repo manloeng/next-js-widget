@@ -32,6 +32,7 @@ function PersonalFinance({ data = {}, handleUpdate }) {
                   fromAge={finance.from_age ? finance.from_age : 0}
                   toAge={finance.to_age ? finance.to_age : 0}
                   index={index}
+                  financeIndex={financeIndex}
                   handleUpdate={handleUpdate}
                 ></MinorDataInputCompoent>
               ))}

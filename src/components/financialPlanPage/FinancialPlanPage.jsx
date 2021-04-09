@@ -16,7 +16,17 @@ function FinancialPlanPage() {
     }
   }, []);
 
-  const handleUpdate = (e) => {};
+  const handleUpdate = (e, payload) => {
+    const { name, value } = e.target;
+    const { financeIndex, index } = payload;
+    const copyData = { ...data };
+
+    let finance = "expenditures";
+    if (financeIndex === 0) finance = "incomes";
+
+    copyData[finance][index][name] = value;
+    setData(copyData);
+  };
 
   return (
     <>
