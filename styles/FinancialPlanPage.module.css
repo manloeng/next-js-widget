@@ -12,12 +12,14 @@
 }
 
 .widget {
+  text-align: center;
   width: 45%;
   border: 1px solid black;
   box-shadow: 1px solid black;
 }
 
 .widget form {
+  text-align: left;
   margin: 1rem;
 }
 
@@ -25,6 +27,12 @@
   color: white;
   background-color: rgb(11, 11, 133);
   margin: 0;
+  padding: 1rem;
+  height: 5rem;
+}
+
+.widget p {
+  margin: auto;
   padding: 1rem;
 }
 
@@ -41,4 +49,57 @@
   margin: 0.25rem;
   padding: 0.25rem;
   border-radius: 0.5rem;
+}
+
+.slidecontainer {
+  margin: 0.5rem;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+}
+
+.button {
+  width: 60%;
+  color: rgb(118, 197, 0);
+  border: 1px solid rgb(118, 197, 0);
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.isHelpful {
+  text-align: right;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.isHelpful a {
+  margin: 0.5rem;
 }
