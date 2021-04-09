@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MinorDataInputCompoent from "./MinorDataInputComponent";
 import styles from "../../../../styles/FinancialPlanPage.module.css";
+import example from "../../../../exmaple.json";
 
-function PersonalFinance({ data = {}, handleUpdate }) {
+function PersonalFinance() {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const cache = localStorage.getItem("data");
+    if (!cache) {
+      setData(example);
+    } else {
+      setData(cache);
+    }
+  }, []);
+
+  const handleUpdate = (e, payload) => {
+    const { name, value } = e.target;
+    const { financeIndex, index } = payload;
+    const copyData = { ...data };
+
+    let finance = "expenditures";
+    if (financeIndex === 0) finance = "incomes";
+
+    copyData[finance][index][name] = value;
+    setData(copyData);
+  };
+
   const keys = Object.keys(data);
   if (!keys.length) return <></>;
   return (
