@@ -103,3 +103,7 @@
 .isHelpful a {
   margin: 0.5rem;
 }
+
+.isHelpful a:hover {
+  cursor: pointer;
+}
