@@ -37,8 +37,8 @@
 }
 
 .widget form input {
-  width: 100px;
-  margin: 0.5rem;
-  padding: 1rem;
+  width: 3rem;
+  margin: 0.25rem;
+  padding: 0.25rem;
   border-radius: 0.5rem;
 }
