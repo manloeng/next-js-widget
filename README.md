@@ -16,7 +16,7 @@ The 2 main user features that are currently included in this app are the ability
 Clone the repo:
 
 ```
-git clone https://github.com/manloeng/MovieSearcher
+git clone https://github.com/manloeng/next-js-widget
 ```
 
 Once you have cloned the repo, you should have the repo on your system.
